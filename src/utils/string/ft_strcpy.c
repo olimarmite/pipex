@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:11:04 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/03 19:34:54 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/04 12:16:20 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/04 14:23:15 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *str)
+void	ft_strcpy(char *dst, char *src)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (src[i] != 0)
 	{
+		dst[i] = src[i];
 		i++;
 	}
-	return (i);
 }

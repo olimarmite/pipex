@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:11:04 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/03 19:34:54 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/05 18:18:27 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/05 18:18:27 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <structs.h>
 
-size_t	ft_strlen(const char *str)
+t_input input(t_input_type type, char *filename, char *limiter)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+	t_input	result;
+	result.type = type;
+	result.filename = filename;
+	result.limiter = limiter;
+	return(result);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_execvpe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:11:04 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/03 19:34:54 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/04 12:46:44 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/05 00:18:16 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <utils.h>
 
-size_t	ft_strlen(const char *str)
+int	ft_execvpe(char *file, char *argv[], char *envp[])
 {
-	size_t	i;
+	char	*path;
 
-	i = 0;
-	while (str[i])
+	if (file == NULL)
 	{
-		i++;
+		errno = 14;
+		return (-1);
 	}
-	return (i);
+	path = get_command_path(file, envp);
+	// printf("-%s-\n", path);
+	if (path == NULL)
+		errno = 2;
+	else
+		execve(path, argv, envp);
+	free(path);
+	return (-1);
 }

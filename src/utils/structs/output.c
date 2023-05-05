@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:11:04 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/03 19:34:54 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/05 18:18:06 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/05 18:18:08 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 
-size_t	ft_strlen(const char *str)
+#include <structs.h>
+
+t_output output(int append, char *filename)
 {
-	size_t	i;
+	t_output result;
 
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+	result.append = append;
+	result.filename = filename;
+	return (result);
 }

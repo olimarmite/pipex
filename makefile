@@ -1,5 +1,5 @@
 ###COMMANDS
-CC	=		cc
+CC	=		gcc
 RM	=		rm -rf
 MKDIR	=	mkdir -p
 #
@@ -25,7 +25,27 @@ LIBFT_HEADER = libft
 #
 
 ###SOURCES
-SRCS = main.c
+SRCS = $(addprefix utils/,					\
+				$(addprefix string/,			\
+					ft_strcpy.c					\
+				)								\
+				$(addprefix exec/,				\
+					ft_execvpe.c				\
+				)								\
+				$(addprefix path/,				\
+					path_utils.c				\
+					get_command_path.c			\
+				)								\
+				$(addprefix structs/,			\
+					command.c					\
+					input.c						\
+					output.c					\
+				)								\
+				$(addprefix parsing/,			\
+					parsing.c					\
+				)								\
+			)									\
+		main.c
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 #
 
@@ -34,7 +54,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 #
 
 ###FLAGS
-CFLAGS = -Wall -Wextra -Werror -v
+CFLAGS = -Wall -Wextra -g #-Werror
 CFLAGS += -I$(INC_DIR)
 CFLAGS += -I$(LIBFT_INC_DIR)
 
