@@ -6,36 +6,15 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:53:03 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/06 20:53:11 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:47:15 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// typedef	enum e_token {
-// 	file,
-// 	command,
-// 	arg,
-// 	append,
-// 	here_doc,
-// 	limiter
-// }	t_token;
-
-// t_token	*tokenize_input(char **str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i] != NULL)
-// 	{
-// 		printf("%s\n", str[i]);
-// 	}
-// }
 
 #include <utils.h>
 #include <structs.h>
 
 t_input	parse_input(char **args)
 {
-
 	if ((ft_strncmp(args[0], "here_doc", 9) == 0) && args[1] != NULL)
 	{
 		return (input(here_doc, NULL, args[1]));
@@ -45,7 +24,7 @@ t_input	parse_input(char **args)
 
 int	parse_command(char *str, t_command *result)
 {
-	char  **splited;
+	char	**splited;
 
 	if (str == NULL)
 		return (1);
@@ -56,11 +35,9 @@ int	parse_command(char *str, t_command *result)
 	return (0);
 }
 
-
-
 int	parse_commands(char **args, int command_count, t_command **commands_out)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	*commands_out = malloc(sizeof(t_command) * command_count);
@@ -79,11 +56,11 @@ int	parse_commands(char **args, int command_count, t_command **commands_out)
 
 void	destroy_commands(t_command **command_lst, int command_count)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	if  (command_lst == NULL)
+	if (command_lst == NULL)
 		return ;
 	while (i < command_count)
 	{
@@ -99,7 +76,6 @@ void	destroy_commands(t_command **command_lst, int command_count)
 	free(*command_lst);
 	*command_lst = NULL;
 }
-
 
 int	parse_pipex_params(char *argv[], int argc, t_execflow *params_out)
 {

@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_execvpe.c                                       :+:      :+:    :+:   */
+/*   check_close.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 12:46:44 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/08 12:33:27 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/08 12:52:25 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/08 13:08:14 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
 
-int	ft_execvpe(char *file, char *argv[], char *envp[])
+void	check_close(int fd)
 {
-	char	*path;
-
-	if (file == NULL)
-	{
-		errno = 14;
-		return (-1);
-	}
-	path = get_command_path(file, envp);
-	if (path == NULL)
-		errno = 2;
+	if (fd != -1)
+		close(fd);
 	else
-		execve(path, argv, envp);
-	free(path);
-	return (-1);
+		printf("Close a invalid fd\n");
 }

@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_execvpe.c                                       :+:      :+:    :+:   */
+/*   files.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 12:46:44 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/08 12:33:27 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/08 13:39:37 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/08 13:40:24 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
+#include <structs.h>
 
-int	ft_execvpe(char *file, char *argv[], char *envp[])
+#include <sys/wait.h>
+
+int	get_in_fd(t_execflow params)
 {
-	char	*path;
-
-	if (file == NULL)
-	{
-		errno = 14;
-		return (-1);
-	}
-	path = get_command_path(file, envp);
-	if (path == NULL)
-		errno = 2;
+	if (params.input.type == here_doc)
+		return (heredoc(params.input.limiter));
 	else
-		execve(path, argv, envp);
-	free(path);
-	return (-1);
+		return (open(params.input.filename, O_RDONLY));
+}
+
+int	get_out_fd(t_execflow params)
+{
+	int	flags;
+
+	flags = O_WRONLY | O_CREAT;
+	if (params.output.append == 0)
+		flags |= O_TRUNC;
+	else
+		flags |= O_APPEND;
+	return (open(params.output.filename, flags, 0644));
 }

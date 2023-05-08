@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:19 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/04 15:34:35 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:38:52 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static char	*search_file_path(char *file, char **path_list)
 	while (*path_list != NULL)
 	{
 		path = join_path(*path_list, file);
-		// printf("~%s~\n", path);
 		if (access(path, F_OK) == 0)
 		{
 			return (path);

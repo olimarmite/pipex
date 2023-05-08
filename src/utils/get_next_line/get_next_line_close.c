@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_execvpe.c                                       :+:      :+:    :+:   */
+/*   get_next_line_close.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 12:46:44 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/08 12:33:27 by olimarti         ###   ########.fr       */
+/*   Created: 2023/03/03 19:52:46 by olimarti          #+#    #+#             */
+/*   Updated: 2023/03/03 19:55:42 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "get_next_line.h"
 
-int	ft_execvpe(char *file, char *argv[], char *envp[])
+void	get_next_line_close(int fd)
 {
-	char	*path;
+	t_vector	**fd_vector;
 
-	if (file == NULL)
-	{
-		errno = 14;
-		return (-1);
-	}
-	path = get_command_path(file, envp);
-	if (path == NULL)
-		errno = 2;
-	else
-		execve(path, argv, envp);
-	free(path);
-	return (-1);
+	fd_vector = get_fd_vector(fd);
+	free_vector(fd_vector);
 }

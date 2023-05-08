@@ -25,7 +25,12 @@ LIBFT_HEADER = libft
 #
 
 ###SOURCES
-SRCS = $(addprefix utils/,					\
+SRCS = $(addprefix utils/,						\
+				$(addprefix get_next_line/,		\
+					get_next_line.c				\
+					get_next_line_utils.c		\
+					get_next_line_close.c		\
+				)								\
 				$(addprefix string/,			\
 					ft_strcpy.c					\
 				)								\
@@ -43,7 +48,15 @@ SRCS = $(addprefix utils/,					\
 				)								\
 				$(addprefix parsing/,			\
 					parsing.c					\
+					heredoc.c					\
 				)								\
+				$(addprefix files/,				\
+					check_close.c				\
+				)								\
+			)									\
+			$(addprefix core/,					\
+				childs.c						\
+				files.c							\
 			)									\
 		main.c
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
