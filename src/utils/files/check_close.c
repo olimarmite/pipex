@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:52:25 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/08 13:08:14 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/09 01:07:18 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,4 @@ void	check_close(int fd)
 {
 	if (fd != -1)
 		close(fd);
-	else
-		printf("Close a invalid fd\n");
 }

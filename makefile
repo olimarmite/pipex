@@ -67,7 +67,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 #
 
 ###FLAGS
-CFLAGS = -Wall -Wextra -g #-Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 CFLAGS += -I$(INC_DIR)
 CFLAGS += -I$(LIBFT_INC_DIR)
 

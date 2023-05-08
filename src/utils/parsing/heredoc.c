@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:56:09 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/08 13:47:28 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/09 00:49:27 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ int	read_write(char *limiter, int in_fd, int out_fd)
 
 	ft_putstr_fd("heredoc>", 0);
 	line = get_next_line(in_fd);
-	line_len = ft_strlen(line);
-	limiter = ft_strjoin(limiter, "\n");
-	while (line != 0 && ft_strncmp(limiter, line, line_len) != 0)
+	while (line != 0 && ft_strncmp(limiter, line, ft_strlen(limiter)) != 0)
 	{
 		ft_putstr_fd("heredoc>", 0);
 		line_len = ft_strlen(line);
 		if (write(out_fd, line, line_len) != line_len)
 		{
 			free(line);
-			free(limiter);
 			get_next_line_close(in_fd);
 			return (-1);
 		}
@@ -37,7 +34,6 @@ int	read_write(char *limiter, int in_fd, int out_fd)
 		line = get_next_line(in_fd);
 	}
 	free(line);
-	free(limiter);
 	get_next_line_close(in_fd);
 	return (0);
 }
