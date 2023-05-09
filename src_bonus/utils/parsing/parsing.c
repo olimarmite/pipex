@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:53:03 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/09 01:28:12 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/09 01:12:21 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 t_input	parse_input(char **args)
 {
+	if ((ft_strncmp(args[0], "here_doc", 9) == 0) && args[1] != NULL)
+	{
+		return (input(here_doc, NULL, args[1]));
+	}
 	return (input(file, args[0], NULL));
 }
 

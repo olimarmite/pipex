@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_close.c                                      :+:      :+:    :+:   */
+/*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 12:52:25 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/09 01:12:21 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/05 18:18:27 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/08 13:45:47 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pipex.h>
+#include <structs.h>
 
-void	check_close(int fd)
+t_input	input(t_input_type type, char *filename, char *limiter)
 {
-	if (fd != -1)
-		close(fd);
+	t_input	result;
+
+	result.type = type;
+	result.filename = filename;
+	result.limiter = limiter;
+	return (result);
 }

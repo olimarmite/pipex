@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_close.c                                      :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 12:52:25 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/09 01:12:21 by olimarti         ###   ########.fr       */
+/*   Created: 2023/05/04 12:16:20 by olimarti          #+#    #+#             */
+/*   Updated: 2023/05/04 14:23:15 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pipex.h>
+#include <unistd.h>
 
-void	check_close(int fd)
+void	ft_strcpy(char *dst, char *src)
 {
-	if (fd != -1)
-		close(fd);
+	size_t	i;
+
+	i = 0;
+	while (src[i] != 0)
+	{
+		dst[i] = src[i];
+		i++;
+	}
 }
