@@ -1,5 +1,5 @@
 ###COMMANDS
-CC	=		gcc
+CC	=		cc
 RM	=		rm -rf
 MKDIR	=	mkdir -p
 #
@@ -28,7 +28,8 @@ LIBFT_HEADER = libft
 #
 
 ###SOURCES
-SRCS = $(addprefix utils/,						\
+
+SRCS = $(addprefix utils/,				\
 				$(addprefix get_next_line/,		\
 					get_next_line.c				\
 					get_next_line_utils.c		\
@@ -51,7 +52,11 @@ SRCS = $(addprefix utils/,						\
 				)								\
 				$(addprefix parsing/,			\
 					parsing.c					\
+				)								\
+				$(addprefix heredoc/,			\
 					heredoc.c					\
+					heredoc_pipe.c				\
+					heredoc_file.c				\
 				)								\
 				$(addprefix files/,				\
 					check_close.c				\
@@ -86,7 +91,11 @@ SRCS_BONUS = $(addprefix utils/,				\
 				)								\
 				$(addprefix parsing/,			\
 					parsing.c					\
+				)								\
+				$(addprefix heredoc/,			\
 					heredoc.c					\
+					heredoc_pipe.c				\
+					heredoc_file.c				\
 				)								\
 				$(addprefix files/,				\
 					check_close.c				\
@@ -110,9 +119,9 @@ OBJS_BONUS = $(SRCS_BONUS:%.c=$(OBJ_DIR)/%.o)
 #
 
 ###FLAGS
-CFLAGS = -Wall -Wextra -Werror -g3
-CFLAGS += -I$(INC_DIR)
+CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -I$(LIBFT_INC_DIR)
+CFLAGS += -I$(INC_DIR)
 
 LDFLAGS	=	-L${LIBFT_DIR} -l:libft.a
 #

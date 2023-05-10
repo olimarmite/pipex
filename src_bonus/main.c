@@ -6,13 +6,12 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 10:30:53 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/09 01:38:34 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:56:43 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 #include <structs.h>
-
 #include <sys/wait.h>
 
 void	clean_and_exit(t_execflow params)
@@ -95,13 +94,14 @@ int	main(int argc, char *argv[], char *envp[])
 			errno = EINVAL;
 		else
 		{
-			in_fd = get_in_fd(params);
+			in_fd = get_in_fd(&params);
 			out_fd = get_out_fd(params);
 			if (in_fd == -1)
 				perror(params.input.filename);
 			if (out_fd == -1)
 				perror(params.output.filename);
 			pipex(params, in_fd, out_fd, envp);
+			clean_tmp_files(params);
 			destroy_commands(&params.commands, params.command_count);
 			return (0);
 		}

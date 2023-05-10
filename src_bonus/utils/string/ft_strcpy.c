@@ -6,13 +6,13 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:16:20 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/04 14:23:15 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/09 22:20:58 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_strcpy(char *dst, char *src)
+int	ft_strcpy(char *dst, char *src)
 {
 	size_t	i;
 
@@ -22,4 +22,5 @@ void	ft_strcpy(char *dst, char *src)
 		dst[i] = src[i];
 		i++;
 	}
+	return (i);
 }
