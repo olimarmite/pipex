@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:19:12 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/10 17:54:21 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:26:39 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char	*heredoc_file_name(void)
 		path = name_gen("/tmp", "hd", i);
 		i++;
 	}
-	printf("-%s-\n", path);
 	return (path);
 }
 

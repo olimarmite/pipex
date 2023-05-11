@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:19:12 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/10 15:51:31 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:26:31 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char	*heredoc_file_name(char *directory)
 		path = name_gen(directory, "pipex_hd", i);
 		i++;
 	}
-	printf("-%s-\n", path);
 	return (path);
 }
 
