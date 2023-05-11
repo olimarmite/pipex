@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:39:37 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/09 23:23:04 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:20:32 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ int	get_out_fd(t_execflow params)
 	return (open(params.output.filename, flags, 0644));
 }
 
-void	clean_tmp_files(t_execflow params)
+void	clean_tmp_files(t_execflow *params)
 {
-	if (params.input.type == here_doc && params.input.filename != NULL)
+	if (params->input.type == here_doc && params->input.filename != NULL)
 	{
-		unlink(params.input.filename);
+		unlink(params->input.filename);
+		free(params->input.filename);
+		params->input.filename = NULL;
 	}
 }

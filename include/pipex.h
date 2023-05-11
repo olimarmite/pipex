@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:16:59 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/09 23:21:34 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:21:09 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int		get_out_fd(t_execflow params);
 int		get_in_fd(t_execflow *params);
 
 int		ft_strcpy(char *dst, char *src);
-void	clean_tmp_files(t_execflow params);
+void	clean_tmp_files(t_execflow *params);
 
 #endif

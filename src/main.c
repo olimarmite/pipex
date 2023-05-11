@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 10:30:53 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/10 17:53:55 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:21:23 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	main(int argc, char *argv[], char *envp[])
 			if (out_fd == -1)
 				perror(params.output.filename);
 			pipex(params, in_fd, out_fd, envp);
-			clean_tmp_files(params);
+			clean_tmp_files(&params);
 			destroy_commands(&params.commands, params.command_count);
 			return (0);
 		}
