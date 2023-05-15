@@ -65,6 +65,7 @@ SRCS = $(addprefix utils/,				\
 			$(addprefix core/,					\
 				childs.c						\
 				files.c							\
+				core.c							\
 			)									\
 		main.c
 
@@ -104,6 +105,7 @@ SRCS_BONUS = $(addprefix utils/,				\
 			$(addprefix core/,					\
 				childs.c						\
 				files.c							\
+				core.c							\
 			)									\
 		main.c
 
