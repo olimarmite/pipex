@@ -6,7 +6,7 @@
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:16:59 by olimarti          #+#    #+#             */
-/*   Updated: 2023/05/15 13:24:58 by olimarti         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:25:49 by olimarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		heredoc_pipe(char *limiter);
 int		heredoc_file(char *limiter, char **filename);
 int		heredoc(char *limiter, char **filename);
 
-void	check_close(int fd);
+void	safe_close(int fd);
 void	child(int fd_in, int fd_out, t_command command, char *envp[]);
 void	wait_childs(int childs_count);
 int		get_out_fd(t_execflow params);
@@ -46,7 +46,8 @@ int		ft_strcpy(char *dst, char *src);
 void	clean_tmp_files(t_execflow *params);
 
 void	clean_and_exit(t_execflow params);
-int		pipex(t_execflow params, int in_fd, int out_fd, char *envp[]);
+// int		pipex(t_execflow params, int in_fd, int out_fd, char *envp[]);
+int		pipex(t_execflow params, char *envp[]);
 void	spawn_last_child(t_execflow params, int prev_wr_fd, int out_fd,
 			char *envp[]);
 int		spawn_commands(t_execflow params, int prev_wr_fd, int out_fd,

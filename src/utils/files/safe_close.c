@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_close.c                                      :+:      :+:    :+:   */
+/*   safe_close.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olimarti <olimarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include <pipex.h>
 
-void	check_close(int fd)
+void	safe_close(int fd)
 {
 	if (fd != -1)
 		close(fd);

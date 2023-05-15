@@ -59,7 +59,7 @@ SRCS = $(addprefix utils/,				\
 					heredoc_file.c				\
 				)								\
 				$(addprefix files/,				\
-					check_close.c				\
+					safe_close.c				\
 				)								\
 			)									\
 			$(addprefix core/,					\
@@ -99,7 +99,7 @@ SRCS_BONUS = $(addprefix utils/,				\
 					heredoc_file.c				\
 				)								\
 				$(addprefix files/,				\
-					check_close.c				\
+					safe_close.c				\
 				)								\
 			)									\
 			$(addprefix core/,					\
@@ -121,7 +121,7 @@ OBJS_BONUS = $(SRCS_BONUS:%.c=$(OBJ_DIR)/%.o)
 #
 
 ###FLAGS
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS += -I$(LIBFT_INC_DIR)
 CFLAGS += -I$(INC_DIR)
 
